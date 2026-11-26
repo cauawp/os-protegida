@@ -1,0 +1,15 @@
+digraph G {
+  graph [rankdir=LR, bgcolor="white", pad="0.2", nodesep="0.32", ranksep="0.48", fontname="Arial", label="FLUXO PROPOSTO DE ATENDIMENTO", labelloc="t", fontsize=18, fontcolor="#172541"];
+  node [shape=box, style="rounded,filled", fillcolor="#F1F4FB", color="#9EAFD4", fontname="Arial", fontsize=10, margin="0.18,0.12", fontcolor="#1B2946"];
+  edge [color="#6178B7", penwidth=1.6, arrowsize=0.7];
+  A [label="Solicitação do cliente"];
+  B [label="Cadastrar / localizar\ncliente"];
+  C [label="Abrir ordem\n(ABERTA)", fillcolor="#EAF0FF"];
+  D [label="Diagnóstico\n(EM_DIAGNOSTICO)"];
+  E [label="Aguardar aprovação\n(se aplicável)", fillcolor="#FFF5E3", color="#D9B56F"];
+  F [label="Executar serviço\n(EM_EXECUCAO)", fillcolor="#E7F7F4", color="#7FC6BB"];
+  G [label="Registrar peças\n(saída vinculada à OS)"];
+  H [label="Concluir com\nsolução registrada", fillcolor="#EDF7E9", color="#9CC18B"];
+  I [label="Auditoria automática\n(eventos críticos)", fillcolor="#F2EDFF", color="#B7A2DD"];
+  A->B->C->D; D->E [label="aprovação necessária", fontsize=8]; E->F [label="aprovado", fontsize=8]; D->F [label="sem aprovação", fontsize=8]; F->G->H->I;
+}

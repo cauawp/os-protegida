@@ -1,0 +1,14 @@
+digraph G {
+  graph [rankdir=LR, bgcolor="white", pad="0.2", nodesep="0.35", ranksep="0.55", fontname="Arial", label="MODELO DE DADOS SIMPLIFICADO", labelloc="t", fontsize=18, fontcolor="#172541"];
+  node [shape=record, style="filled", fillcolor="#F7F9FD", color="#9EAFD4", fontname="Arial", fontsize=9, margin="0.12,0.08", fontcolor="#1B2946"];
+  edge [color="#6178B7", penwidth=1.3, arrowsize=0.65];
+  U [label="{USERS|id (PK)\lname\lusername\lpassword_hash\lrole\lactive\l}"];
+  C [label="{CLIENTS|id (PK)\lname\lphone\lemail\lactive\l}"];
+  O [label="{SERVICE_ORDERS|id (PK)\lcode\lclient_id (FK)\ldevice\lproblem\lstatus\ltechnician_id (FK)\lresolution\l}", fillcolor="#EAF0FF"];
+  P [label="{PARTS|id (PK)\lsku\lname\lquantity\lmin_quantity\lunit_cost\l}"];
+  OP [label="{SERVICE_ORDER_PARTS|id (PK)\lorder_id (FK)\lpart_id (FK)\lquantity\lunit_cost\l}"];
+  SM [label="{STOCK_MOVEMENTS|id (PK)\lpart_id (FK)\ltype\lquantity\lorder_id (FK)\luser_id (FK)\l}"];
+  AU [label="{AUDIT_LOGS|id (PK)\lactor_id (FK)\laction\lentity\lresult\ldetails_json\lcreated_at\l}", fillcolor="#F2EDFF", color="#B7A2DD"];
+  SS [label="{SESSIONS|id (PK)\ltoken_hash\luser_id (FK)\lexpires_at\lrevoked_at\l}"];
+  C->O [label="1 : N"]; U->O [label="1 : N", style=dashed]; O->OP [label="1 : N"]; P->OP [label="1 : N"]; P->SM [label="1 : N"]; O->SM [label="0 : N", style=dashed]; U->SM [label="1 : N", style=dashed]; U->SS [label="1 : N"]; U->AU [label="0 : N", style=dashed];
+}

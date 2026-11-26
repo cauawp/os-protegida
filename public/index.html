@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111b32">
+  <title>OS Protegida | Gestão de Assistência Técnica</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <div id="login-screen" class="login-screen">
+    <section class="login-brand">
+      <div class="brand-lockup">
+        <div class="brand-mark">OS<span>+</span></div>
+        <div class="brand-lockup-copy"><strong>OS Protegida</strong><small>GESTÃO DE ASSISTÊNCIA TÉCNICA</small></div>
+      </div>
+      <div class="brand-copy">
+        <h1>Sua assistência técnica,<br><span>organizada de ponta a ponta.</span></h1>
+        <p>Centralize clientes, ordens de serviço e peças em um único ambiente, com controle de acesso e histórico das operações.</p>
+      </div>
+      <div class="brand-benefits" aria-label="Benefícios do sistema">
+        <div><span aria-hidden="true"></span>Acompanhamento de cada atendimento</div>
+        <div><span aria-hidden="true"></span>Estoque vinculado às ordens de serviço</div>
+        <div><span aria-hidden="true"></span>Trilha de auditoria das ações críticas</div>
+      </div>
+      <div class="brand-foot">PROTÓTIPO ACADÊMICO · UNIFEOB · 2026</div>
+    </section>
+    <section class="login-panel">
+      <div class="login-card">
+        <div class="mobile-brand"><div class="brand-mark">OS<span>+</span></div><strong>OS Protegida</strong></div>
+        <p class="eyebrow">ÁREA RESTRITA</p>
+        <h2>Acessar sua conta</h2>
+        <p class="muted">Informe suas credenciais para entrar no sistema.</p>
+        <form id="login-form">
+          <label for="username">Usuário</label>
+          <input id="username" name="username" autocomplete="username" required placeholder="Seu usuário">
+          <label for="password">Senha</label>
+          <input id="password" name="password" type="password" autocomplete="current-password" required placeholder="Sua senha">
+          <button class="btn btn-primary btn-full" type="submit">Entrar no sistema <span aria-hidden="true">→</span></button>
+          <p id="login-error" class="form-error" role="alert"></p>
+        </form>
+        <details class="demo-box">
+          <summary class="demo-title"><span class="demo-dot"></span> CONTAS PARA TESTE <span class="demo-toggle">＋</span></summary>
+          <div class="demo-content">
+            <div class="demo-row"><span>Administrador</span><button type="button" data-fill-user="admin" data-fill-pass="Admin@Demo2026!">Usar conta</button></div>
+            <div class="demo-row"><span>Técnico</span><button type="button" data-fill-user="tecnico" data-fill-pass="Tecnico@Demo2026!">Usar conta</button></div>
+            <div class="demo-row"><span>Consulta</span><button type="button" data-fill-user="consulta" data-fill-pass="Consulta@Demo2026!">Usar conta</button></div>
+            <small>Credenciais fictícias, exclusivas para demonstração local. Não reutilize em produção.</small>
+          </div>
+        </details>
+        <p class="login-legal">O protótipo utiliza dados fictícios. Não cadastre informações reais de clientes.</p>
+      </div>
+    </section>
+  </div>
+
+  <div id="app-shell" class="app-shell hidden">
+    <aside class="sidebar">
+      <div class="sidebar-brand"><div class="brand-mark small">OS<span>+</span></div><div><strong>OS Protegida</strong><small>ASSISTÊNCIA TÉCNICA</small></div></div>
+      <div class="side-label">MENU PRINCIPAL</div>
+      <nav id="main-nav" class="main-nav">
+        <button class="nav-item active" data-page="dashboard"><span class="nav-icon">◫</span> Visão geral</button>
+        <button class="nav-item" data-page="orders"><span class="nav-icon">▤</span> Ordens de serviço</button>
+        <button class="nav-item" data-page="clients"><span class="nav-icon">♙</span> Clientes</button>
+        <button class="nav-item" data-page="stock"><span class="nav-icon">▦</span> Estoque</button>
+        <div class="side-label admin-only">ADMINISTRAÇÃO</div>
+        <button class="nav-item admin-only" data-page="team"><span class="nav-icon">♧</span> Usuários e perfis</button>
+        <button class="nav-item admin-only" data-page="audit"><span class="nav-icon">◷</span> Auditoria</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="security-note"><span>●</span><div><strong>Ambiente protegido</strong><small>Permissões aplicadas no servidor</small></div></div>
+        <div class="sidebar-user-card">
+          <div class="sidebar-user-avatar" id="sidebar-user-avatar">U</div>
+          <div><strong id="sidebar-user-name">Usuário</strong><small id="sidebar-user-role">Perfil</small></div>
+        </div>
+        <div class="sidebar-version">OS PROTEGIDA · V1.0</div>
+      </div>
+    </aside>
+
+    <div class="main-column">
+      <header class="topbar">
+        <div class="topbar-left"><button class="menu-toggle" data-action="toggle-menu" aria-label="Abrir menu">☰</button><div><div class="topbar-kicker">ÁREA OPERACIONAL</div><div id="page-title" class="topbar-title">Bem-vindo</div></div></div>
+        <div class="topbar-actions">
+          <div class="topbar-search" aria-hidden="true"><span>⌕</span><span>Buscar no sistema</span></div>
+          <div class="user-area"><div class="user-avatar" id="user-avatar">A</div><div class="user-info"><strong id="user-name">Usuário</strong><small id="user-role">Perfil</small></div><button class="logout-btn" data-action="logout" title="Sair" aria-label="Sair">↗</button></div>
+        </div>
+      </header>
+      <main id="page-content" class="page-content" tabindex="-1"></main>
+      <footer class="app-footer"><span>OS Protegida · Protótipo acadêmico</span><span>Dados exclusivamente demonstrativos</span></footer>
+    </div>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

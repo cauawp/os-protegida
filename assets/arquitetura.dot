@@ -1,0 +1,13 @@
+digraph G {
+  graph [rankdir=TB, bgcolor="white", pad="0.2", nodesep="0.25", ranksep="0.35", fontname="Arial", label="ARQUITETURA DO PROTÓTIPO", labelloc="t", fontsize=18, fontcolor="#172541"];
+  node [shape=box, style="rounded,filled", fillcolor="#F1F4FB", color="#AAB8D8", fontname="Arial", fontsize=10, margin="0.18,0.12", fontcolor="#1B2946"];
+  edge [color="#6178B7", penwidth=1.5, arrowsize=0.7];
+  U [label="Navegador\nHTML · CSS · JavaScript", fillcolor="#EAF0FF"];
+  S [label="Servidor HTTP Node.js\nRotas REST · validação · respostas", fillcolor="#F1F4FB"];
+  M [label="Camada de segurança\nSessão HttpOnly · SameSite Strict · RBAC\nlimite de tentativas · CSP · validação de origem", fillcolor="#FFF5E3", color="#D9B56F"];
+  D [label="Camada de domínio\nClientes · Ordens · Peças · Movimentações\nRegras de transição · transações", fillcolor="#E7F7F4", color="#7FC6BB"];
+  DB [label="SQLite\nUsuários · Sessões · Clientes · OS · Estoque\nMovimentos · Auditoria append-only", fillcolor="#F2EDFF", color="#B7A2DD"];
+  U->S->M->D->DB;
+  A [shape=note, label="Dados fictícios\npara demonstração", fillcolor="#FAFBFD", color="#D9DEE8", fontsize=9];
+  A->U [style=dashed, arrowhead=none, color="#A8B3C6"];
+}
