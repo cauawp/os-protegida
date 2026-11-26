@@ -3,9 +3,13 @@
 Protótipo acadêmico para gestão de ordens de serviço e controle de peças de uma atividade de assistência técnica de computadores e equipamentos periféricos.
 
 **Aluno:** Cauã Wilian Pereira · **Matrícula:** 25000693  
+
 **Curso:** Análise e Desenvolvimento de Sistemas
+
 **Beneficiário:** 63.583.490 CAUA WILIAN PEREIRA · **CNPJ:** 63.583.490/0001-16  
+
 **Módulo:** Software Corporativo · 4º trimestre de 2026
+
 **Protótipo Figma:** [Clique aqui](https://www.figma.com/design/LFC0VulzkpmTwSA7rxTtG4/OS-Protegida-%E2%80%94-Projeto-Integrado-UNIFEOB?node-id=0-1&t=2JgrPHY4NIphmSU6-1)
 
 ## 1. Executar localmente
